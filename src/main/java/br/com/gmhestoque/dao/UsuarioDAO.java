@@ -2,45 +2,16 @@ package br.com.gmhestoque.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
-import org.springframework.stereotype.Repository;
-
 import br.com.gmhestoque.entidade.Usuario;
 
-@Repository
-public class UsuarioDAO {
+public interface UsuarioDAO {
 	
-	@PersistenceContext
-	EntityManager em;
+	public Usuario salvar(Usuario usuario);
 	
-	public UsuarioDAO(EntityManager em) {
-		this.em =  em;
-	}
+	public void excluir(Usuario usuario) throws DAOException;
 	
-	//Insert ou Update Verifica se id = null ou 0 inseri um novo se nao da update 
-	public void salvar(Usuario usuario) {
-		em.getTransaction().begin();
-		em.merge(usuario);
-		em.getTransaction().commit();
-	}
+	public Usuario buscarPorId(int id);
 	
-	public void excluir(Usuario usuario) {
-		em.getTransaction().begin();
-		em.remove(usuario);
-		em.getTransaction().commit();
-	}
+	public List<Usuario> buscarTodos();
 	
-	public Usuario buscarPorId(int id) {
-		return em.find(Usuario.class, id);
-	}
-	
-	public List<Usuario> buscarTodos(){
-		Query q = em.createQuery("select u from Usuario u");
-		
-		return q.getResultList();
-	}
-	
-}	
+}

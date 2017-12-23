@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import br.com.gmhestoque.dao.UsuarioDAO;
+import br.com.gmhestoque.dao.UsuarioDAOJPA;
 import br.com.gmhestoque.entidade.Usuario;
 
 public class TestUsuarioDAO {
@@ -37,7 +37,7 @@ public class TestUsuarioDAO {
 		usu.setSenha("12345678910");
 		
 		//Criando um usuarioDAO
-		UsuarioDAO usuarioDAO = new UsuarioDAO(em);
+		UsuarioDAOJPA usuarioDAO = new UsuarioDAOJPA(em);
 		usuarioDAO.salvar(usu);
 		
 	}

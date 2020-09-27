@@ -1,4 +1,4 @@
-<h1>GmhEstoque</h1>
+<h1>Stockfy</h1>
 
 Development of Java Web system for fast and easy registration and control of Inventory and its management of products, supplies and services.
 

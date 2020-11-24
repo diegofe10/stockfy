@@ -27,3 +27,4 @@ Description: The system will allow any facility to easily manage its inventory u
 * Maven
 
 * Primefaces for the front-end
+
